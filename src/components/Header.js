@@ -2,7 +2,7 @@ import { PropTypes } from "prop-types"
 
 const Header = ({title}) => {
   return (
-    <header className="header text-center bg-dark text-light p-2">
+    <header className="header text-center text-secondary shadow p-2">
         <h1>{title}</h1>
     </header>
   )
