@@ -1,16 +1,27 @@
 import Singletask from "./Singletask";
 
-const Tasks = ({ todoit, onDelete }) => {
+const Tasks = ({ todoit, onDelete, onToggle }) => {
   return (
     <div>
-      <div className="container my-3">
-        <h5 className="text-center p-2 my-3 border rounded-pill">Tasks</h5>
-        <div className="tasks-outer">
-          {todoit.map((task) => (
-            <Singletask key={task.id} todosingle={task} onDelete={onDelete} />
-          ))}
+      {todoit.length > 0 ? (
+        <div className="container my-3">
+          <h5 className="text-center p-2 my-3 border rounded-pill">Tasks</h5>
+          <div className="tasks-outer">
+            {todoit.map((task) => (
+              <Singletask
+                key={task.id}
+                todosingle={task}
+                onDelete={onDelete}
+                onToggle={onToggle}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="container my-3">
+          <h6 className="text-secondary text-center">Add Tasks to show</h6>
+        </div>
+      )}
     </div>
   );
 };

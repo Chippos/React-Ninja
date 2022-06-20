@@ -26,7 +26,7 @@ const App = () => {
       id: 3,
       text: "Food Shopping",
       day: "Feb 5th at 2:30pm",
-      reminder: true,
+      reminder: false,
     },
   ]);
 
@@ -36,11 +36,20 @@ const App = () => {
     // console.log('Delete: ',id)
   };
 
+  // Toggle Reminder
+  const toggleReminder = (id) => {
+    setTodo(
+      todo.map((remind) =>
+        remind.id === id ? { ...remind, reminder: !remind.reminder } : remind
+      )
+    );
+  };
+
   return (
     <div className="App">
-      <Header title="React-Ninja" />
+      <Header title="React-Shinobi" />
       <Userform btnText="Submit" onclick={clicked} />
-      {todo.length > 0 ? <Tasks todoit={todo} onDelete={deleteTask} /> : null}
+      <Tasks todoit={todo} onDelete={deleteTask} onToggle={toggleReminder} />
     </div>
   );
 };
