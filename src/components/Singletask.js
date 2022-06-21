@@ -1,5 +1,5 @@
 import { FaTimes } from "react-icons/fa";
-import './style.css'
+import "./style.css";
 
 const Singletask = ({ todosingle, onDelete, onToggle }) => {
   return (

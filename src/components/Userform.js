@@ -2,15 +2,29 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import "./style.css";
 
-const Userform = ({ btnText, onclick }) => {
+const Userform = ({ btnText, onclick, onAdd }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    if (!text) {
+      alert("Please add task");
+      return;
+    }
+    onAdd({ text, day, reminder });
+
+    setText("");
+    setDay("");
+    setReminder(false);
+  };
+
   return (
     <div>
       <div className="container my-3">
-        <form action="" id="my-form" className="shadow p-5">
+        <form action="" id="my-form" className="shadow p-5" onSubmit={onSubmit}>
           <h5>Add Task</h5>
           <div className="form-control border-0">
             <input
@@ -40,6 +54,7 @@ const Userform = ({ btnText, onclick }) => {
             <input
               className="form-check-input"
               type="checkbox"
+              checked={reminder}
               id="reminderSwitch"
               value={reminder}
               onChange={(e) => setReminder(e.currentTarget.checked)}
