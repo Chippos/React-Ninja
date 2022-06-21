@@ -18,3 +18,10 @@ input:focus::placeholder {
   font-size: small;
   opacity: 0.8;
 }
+.form-check-input:checked{
+  border: 1px solid black !important;
+  background-color: black !important;
+}
+.form-check-input:active{
+  box-shadow: none !important;
+}

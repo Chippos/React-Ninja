@@ -3,9 +3,9 @@ import { useState } from "react";
 import "./style.css";
 
 const Userform = ({ btnText, onclick }) => {
-  const {text, setText} = useState('');
-  const {day, setDay} = useState('');
-  const {reminder, setReminder} = useState(false);
+  const [text, setText] = useState("");
+  const [day, setDay] = useState("");
+  const [reminder, setReminder] = useState(false);
 
   return (
     <div>
@@ -18,7 +18,7 @@ const Userform = ({ btnText, onclick }) => {
               placeholder="Task"
               className="w-100 pt-4 border-0 border-bottom"
               value={text}
-              onChange={(e)=> setText(e.target.value)}
+              onChange={(e) => setText(e.target.value)}
             />
           </div>
           <div className="form-control border-0">
@@ -27,7 +27,7 @@ const Userform = ({ btnText, onclick }) => {
               placeholder="Date & Time"
               className="w-100 pt-4 border-0 border-bottom"
               value={day}
-              onChange={(e)=> setDay(e.target.value)}
+              onChange={(e) => setDay(e.target.value)}
             />
           </div>
           <div className="form-check form-switch d-flex justify-content-between p-0 mx-3 my-4">
@@ -42,7 +42,7 @@ const Userform = ({ btnText, onclick }) => {
               type="checkbox"
               id="reminderSwitch"
               value={reminder}
-              onChange={(e)=> setReminder(e.currentTarget.checked)}
+              onChange={(e) => setReminder(e.currentTarget.checked)}
             />
           </div>
           <div>
